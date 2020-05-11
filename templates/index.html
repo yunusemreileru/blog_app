@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <div style = "margin-top:50px;" class="jumbotron text-center">
+        <h3>YEİ Yazılım bloguna hoşgeldiniz.</h3>
+        <p>Bu blogta yazılım projeleriniz ile ilgili makalelerinizi paylaşabilirsiniz.</p>
+    </div>
+
+    {% if number1 < number2 %}
+        <p>{{number1}} < {{number2}}</p>
+    {% else %}
+        <p>{{number1}} > {{number2}}</p>
+    {% endif %}
+
+    <ul>
+        {% for i in numbers %}
+            <li>{{i}}</li>
+        {% endfor %}
+    </ul>
+
+    <p>
+        {% if request.user.is_authenticated %}
+            Giriş Yapılmış. {{request.user.username}}       
+        {% else %}
+            Giriş Yapılmamış.
+        {% endif %}
+    </p>
+
+{% endblock body %}
